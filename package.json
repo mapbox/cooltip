@@ -1,0 +1,22 @@
+{
+  "name": "cooltip",
+  "version": "1.0.0",
+  "description": "a react tooltip implementation",
+  "main": "dist/tooltip.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "babel lib/tooltip.js > dist/tooltip.js && babel lib/tooltip_internal.js > dist/tooltip_internal.js"
+  },
+  "keywords": [
+    "react",
+    "tooltip"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "babel": "^5.8.23",
+    "prefix": "^0.2.2",
+    "react": "^0.13.3",
+    "react-pure-render": "^1.0.2"
+  }
+}
