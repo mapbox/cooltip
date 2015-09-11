@@ -83,7 +83,7 @@ var Tooltip = React.createClass({
     React.render(React.createElement(TooltipInternal, _extends({}, this.props, {
       anchor: this._container,
       nubClassName: nubClasses[this.props.align],
-      className: 'round pad0x pad00y fill-tooltip micro noevents contain' })), this._node);
+      className: 'round pad1 fill-white quiet shadow micro noevents contain' })), this._node);
   },
   render: function render() {
     return this.props.children;
