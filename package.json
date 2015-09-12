@@ -1,6 +1,6 @@
 {
   "name": "cooltip",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "a react tooltip implementation",
   "main": "dist/tooltip.js",
   "scripts": {
