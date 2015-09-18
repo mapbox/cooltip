@@ -111,13 +111,13 @@ var TooltipInternal = React.createClass({
           lineHeight: this.props.lineHeight,
           top: config.posTop + 'px',
           left: config.posLeft + 'px'
-        }, prefix.dash('transform'), config.translate) },
+        }, prefix('transform'), config.translate) },
       React.createElement('div', {
         className: flip ? this.props.nubClassName.replace(flipAlign[this.props.align], this.props.align) : this.props.nubClassName,
         style: _defineProperty({
           left: config.nubLeft,
           top: config.nubTop
-        }, prefix.dash('transform'), config.nubTranslate) }),
+        }, prefix('transform'), config.nubTranslate) }),
       content
     );
   }
