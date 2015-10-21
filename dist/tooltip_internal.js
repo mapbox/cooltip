@@ -19,33 +19,33 @@ var shouldFlip = function shouldFlip(align, left, top, width, height, xOffset, y
 var tooltipConfig = function tooltipConfig(align, left, top, width, height, xOffset, yOffset) {
   var config = {
     bottom: {
-      nubTranslate: 'translate3d(-50%, -100%, 0)',
-      translate: 'translate3d(-50%, 0, 0)',
+      nubTranslate: 'translate(-50%, -100%)',
+      translate: 'translate(-50%, 0)',
       posTop: top + height + yOffset,
-      posLeft: left + width / 2 + xOffset,
+      posLeft: left + parseInt(width / 2) + xOffset,
       nubLeft: '50%',
       nubTop: 0
     },
     top: {
-      nubTranslate: 'translate3d(-50%, 0, 0)',
-      translate: 'translate3d(-50%, -100%, 0)',
+      nubTranslate: 'translate(-50%, 0)',
+      translate: 'translate(-50%, -100%)',
       posTop: top + yOffset,
-      posLeft: left + width / 2 + xOffset,
+      posLeft: left + parseInt(width / 2) + xOffset,
       nubLeft: '50%',
       nubTop: '100%'
     },
     left: {
-      nubTranslate: 'translate3d(0, -50%, 0)',
-      translate: 'translate3d(-100%, -50%, 0)',
-      posTop: top + height / 2 + yOffset,
+      nubTranslate: 'translate(0, -50%)',
+      translate: 'translate(-100%, -50%)',
+      posTop: top + parseInt(height / 2) + yOffset,
       posLeft: left + xOffset,
       nubLeft: '100%',
       nubTop: '50%'
     },
     right: {
-      nubTranslate: 'translate3d(-100%, -50%, 0)',
-      translate: 'translate3d(0, -50%, 0)',
-      posTop: top + height / 2 + yOffset,
+      nubTranslate: 'translate(-100%, -50%)',
+      translate: 'translate(0, -50%)',
+      posTop: top + parseInt(height / 2) + yOffset,
       posLeft: left + width + xOffset,
       nubLeft: 0,
       nubTop: '50%'
@@ -91,12 +91,10 @@ var TooltipInternal = React.createClass({
     var content = typeof this.props.content === 'string' ? this.props.content : this.props.content();
     if (!content) return null;
 
-    var _props$anchor$getBoundingClientRect = this.props.anchor.getBoundingClientRect();
-
-    var left = _props$anchor$getBoundingClientRect.left;
-    var top = _props$anchor$getBoundingClientRect.top;
-    var width = _props$anchor$getBoundingClientRect.width;
-    var height = _props$anchor$getBoundingClientRect.height;
+    var left = parseInt(this.props.anchor.getBoundingClientRect().left),
+        top = parseInt(this.props.anchor.getBoundingClientRect().top),
+        width = parseInt(this.props.anchor.getBoundingClientRect().width),
+        height = parseInt(this.props.anchor.getBoundingClientRect().height);
 
     var flip = shouldFlip(this.props.align, left, top, width, height, this.props.xOffset, this.props.yOffset, this.props.flipPadding, window.innerWidth, window.innerHeight);
     var config = tooltipConfig(flip ? flipAlign[this.props.align] : this.props.align, left, top, width, height, flip ? -this.props.xOffset : this.props.xOffset, flip ? -this.props.yOffset : this.props.yOffset);
