@@ -3,6 +3,7 @@
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 var React = require('react'),
+    ReactDOM = require('react-dom'),
     PureRenderMixin = require('react-pure-render/mixin'),
     TooltipInternal = require('./tooltip_internal');
 
@@ -34,7 +35,7 @@ var Tooltip = React.createClass({
     };
   },
   componentDidMount: function componentDidMount() {
-    this._container = React.findDOMNode(this);
+    this._container = ReactDOM.findDOMNode(this);
     this._container.addEventListener('mouseenter', this.onMouseEnter);
     this._container.addEventListener('mouseleave', this.hideTooltip);
   },
@@ -70,7 +71,7 @@ var Tooltip = React.createClass({
     if (!callback) callback = function () {};
     if (this.state.showTimeout) window.clearTimeout(this.state.showTimeout);
     if (this._node) {
-      React.unmountComponentAtNode(this._node);
+      ReactDOM.unmountComponentAtNode(this._node);
       this._node.parentNode.removeChild(this._node);
       this._node = null;
     }
@@ -80,7 +81,7 @@ var Tooltip = React.createClass({
     callback();
   },
   _render: function _render() {
-    React.render(React.createElement(TooltipInternal, _extends({}, this.props, {
+    ReactDOM.render(React.createElement(TooltipInternal, _extends({}, this.props, {
       anchor: this._container,
       nubClassName: nubClasses[this.props.align],
       className: 'round pad1 fill-white quiet shadow micro noevents contain' })), this._node);
