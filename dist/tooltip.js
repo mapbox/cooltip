@@ -22,6 +22,7 @@ var Tooltip = React.createClass({
   mixins: [PureRenderMixin],
   propTypes: {
     align: React.PropTypes.string,
+    anchor: typeof Element === 'undefined' ? React.PropTypes.any : React.PropTypes.instanceOf(Element),
     children: React.PropTypes.any.isRequired
   },
   getDefaultProps: function getDefaultProps() {
@@ -68,7 +69,7 @@ var Tooltip = React.createClass({
     });
   },
   hideTooltip: function hideTooltip(e, callback) {
-    if (!callback) callback = function () {};
+    if (!callback) callback = function callback() {};
     if (this.state.showTimeout) window.clearTimeout(this.state.showTimeout);
     if (this._node) {
       ReactDOM.unmountComponentAtNode(this._node);
@@ -82,7 +83,7 @@ var Tooltip = React.createClass({
   },
   _render: function _render() {
     ReactDOM.render(React.createElement(TooltipInternal, _extends({}, this.props, {
-      anchor: this._container,
+      anchor: this.props.anchor || this._container,
       nubClassName: nubClasses[this.props.align],
       className: 'round pad1 fill-white quiet shadow micro noevents contain' })), this._node);
   },
