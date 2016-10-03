@@ -15,7 +15,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "prefix": "^0.2.3",
+    "prefix": "^1.0.0",
     "react-pure-render": "^1.0.2"
   },
   "peerDependencies": {
