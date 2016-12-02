@@ -13,4 +13,4 @@ A React tooltip implementation
 
 ## Install
 
-    npm install --save cooltip
+    npm install --save @mapbox/cooltip
