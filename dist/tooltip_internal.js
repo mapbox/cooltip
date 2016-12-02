@@ -91,12 +91,11 @@ var TooltipInternal = React.createClass({
     var content = typeof this.props.content === 'string' ? this.props.content : this.props.content();
     if (!content) return null;
 
-    var _props$anchor$getBoun = this.props.anchor.getBoundingClientRect();
-
-    var left = _props$anchor$getBoun.left;
-    var top = _props$anchor$getBoun.top;
-    var width = _props$anchor$getBoun.width;
-    var height = _props$anchor$getBoun.height;
+    var _props$anchor$getBoun = this.props.anchor.getBoundingClientRect(),
+        left = _props$anchor$getBoun.left,
+        top = _props$anchor$getBoun.top,
+        width = _props$anchor$getBoun.width,
+        height = _props$anchor$getBoun.height;
 
     var flip = shouldFlip(this.props.align, left, top, width, height, this.props.xOffset, this.props.yOffset, this.props.flipPadding, window.innerWidth, window.innerHeight);
     var config = tooltipConfig(flip ? flipAlign[this.props.align] : this.props.align, left, top, width, height, flip ? -this.props.xOffset : this.props.xOffset, flip ? -this.props.yOffset : this.props.yOffset);
