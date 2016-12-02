@@ -1,5 +1,5 @@
 {
-  "name": "cooltip",
+  "name": "@mapbox/cooltip",
   "version": "3.2.1",
   "description": "a react tooltip implementation",
   "main": "dist/tooltip.js",
