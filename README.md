@@ -1,8 +1,8 @@
-```
 ## ⚠️ This repo is archived ⚠️ 
 
 You can still fork this repo if you wish, but there are no plans for the Mapbox team to work on this project.
-```
+
+---
 
 # cooltip
 
